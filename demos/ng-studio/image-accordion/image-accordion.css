@@ -1,0 +1,17 @@
+.ngsp-ia{--ngsp-ia-h:420px;--ngsp-ia-gap:8px;--ngsp-ia-radius:16px;--ngsp-ia-accent:#5b47d6;--ngsp-ia-ink:#fff;display:flex;gap:var(--ngsp-ia-gap);height:var(--ngsp-ia-h)}
+.ngsp-ia__panel{position:relative;flex:1 1 0;min-width:0;min-height:0;border-radius:var(--ngsp-ia-radius);overflow:hidden;background:#2d2470 center/cover no-repeat;cursor:pointer;transition:flex-grow .5s ease;outline-offset:2px}
+.ngsp-ia__panel--1{background-color:#083f3a}.ngsp-ia__panel--2{background-color:#572a04}.ngsp-ia__panel--3{background-color:#5a0f2d}.ngsp-ia__panel--4{background-color:#0d2a6b}.ngsp-ia__panel--5{background-color:#0a3d1f}
+.ngsp-ia__panel img.ngsp-ia__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ngsp-ia__shade{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(10,10,20,.78))}
+.ngsp-ia__body{position:absolute;inset-inline:0;bottom:0;padding:16px;color:var(--ngsp-ia-ink)}
+.ngsp-ia__title{margin:0;font-size:18px;line-height:1.25;overflow-wrap:break-word}
+.ngsp-ia__text{margin:6px 0 0;font-size:14px;line-height:1.45;overflow-wrap:break-word;opacity:0;max-height:0;transition:opacity .4s ease}
+.ngsp-ia__more{display:inline-block;margin-top:10px;color:var(--ngsp-ia-ink);font-weight:600;font-size:14px;opacity:0;max-height:0;overflow:hidden}
+.ngsp-ia__panel:hover,.ngsp-ia__panel:focus-within,.ngsp-ia__panel.ngsp-ia__panel--active{flex-grow:4}
+.ngsp-ia__panel:hover .ngsp-ia__text,.ngsp-ia__panel:focus-within .ngsp-ia__text,.ngsp-ia__panel--active .ngsp-ia__text,
+.ngsp-ia__panel:hover .ngsp-ia__more,.ngsp-ia__panel:focus-within .ngsp-ia__more,.ngsp-ia__panel--active .ngsp-ia__more{opacity:1;max-height:200px}
+@media (max-width:767px){.ngsp-ia{flex-direction:column;height:auto}
+.ngsp-ia__panel{min-height:72px;height:auto}
+.ngsp-ia__panel:hover,.ngsp-ia__panel:focus-within,.ngsp-ia__panel--active{flex-grow:1;min-height:240px}
+.ngsp-ia__panel .ngsp-ia__text,.ngsp-ia__panel .ngsp-ia__more{opacity:1;max-height:none}}
+@media (prefers-reduced-motion:reduce){.ngsp-ia__panel{transition:none}}

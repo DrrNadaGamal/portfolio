@@ -1,0 +1,22 @@
+.ngsp-vg{--ngsp-vg-cols:3;--ngsp-vg-gap:16px;--ngsp-vg-radius:14px;--ngsp-vg-accent:#5b47d6;--ngsp-vg-ink:#191b29}
+.ngsp-vg__heading{margin:0 0 14px;font-size:22px;color:var(--ngsp-vg-ink);overflow-wrap:break-word}
+.ngsp-vg__grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--ngsp-vg-cols),1fr);gap:var(--ngsp-vg-gap)}
+.ngsp-vg__fig{margin:0;position:relative;overflow:hidden;border-radius:var(--ngsp-vg-radius);background:#191b29}
+.ngsp-vg__open{display:block;width:100%;border:0;padding:0;background:none;cursor:pointer;position:relative}
+.ngsp-vg__open--static{cursor:default}
+.ngsp-vg__img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.ngsp-vg__ph{background:linear-gradient(135deg,#1d4ed8,#0d2a6b)}
+.ngsp-vg__play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--ngsp-vg-accent);display:flex;align-items:center;justify-content:center;transition:transform .2s ease}
+.ngsp-vg__open:hover .ngsp-vg__play,.ngsp-vg__open:focus-visible .ngsp-vg__play{transform:translate(-50%,-50%) scale(1.08)}
+.ngsp-vg__dur{position:absolute;bottom:8px;inset-inline-end:8px;background:rgba(10,10,20,.75);color:#fff;font-size:12px;padding:2px 8px;border-radius:999px}
+.ngsp-vg__cap{position:absolute;inset-inline:0;bottom:0;padding:22px 12px 8px;color:#fff;font-size:14px;line-height:1.3;background:linear-gradient(transparent,rgba(10,10,20,.72));overflow-wrap:break-word;pointer-events:none}
+.ngsp-vg__dialog{border:0;padding:0;background:transparent;max-width:min(920px,94vw);width:100%}
+.ngsp-vg__dialog::backdrop{background:rgba(10,10,25,.82)}
+.ngsp-vg__view{margin:0}
+.ngsp-vg__video{display:block;width:100%;max-height:76vh;background:#000;border-radius:12px}
+.ngsp-vg__bigcap{color:#fff;text-align:center;margin:8px 0 0;font-size:15px;overflow-wrap:break-word}
+.ngsp-vg__btn{position:absolute;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#191b29;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ngsp-vg__close{top:-48px;inset-inline-end:0}
+.ngsp-vg__prev{top:50%;inset-inline-start:-52px;transform:translateY(-50%)}
+.ngsp-vg__next{top:50%;inset-inline-end:-52px;transform:translateY(-50%)}
+@media (max-width:767px){.ngsp-vg__prev{inset-inline-start:4px}.ngsp-vg__next{inset-inline-end:4px}.ngsp-vg__close{top:-44px}}

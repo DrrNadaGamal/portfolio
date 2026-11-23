@@ -1,0 +1,11 @@
+.ngsp-pano{--ngsp-pano-h:60vh;--ngsp-pano-radius:16px;--ngsp-pano-accent:#5b47d6;--ngsp-pano-ink:#fff;position:relative}
+.ngsp-pano__view{position:relative;height:var(--ngsp-pano-h);min-height:220px;overflow:hidden;border-radius:var(--ngsp-pano-radius);cursor:grab;background:#1e1b4b;touch-action:pan-y}
+.ngsp-pano__view:active{cursor:grabbing}
+.ngsp-pano__view:focus-visible{outline:3px solid var(--ngsp-pano-accent);outline-offset:2px}
+.ngsp-pano__view img.ngsp-pano__img{position:absolute;top:0;left:0;height:100%;width:auto;max-width:none;user-select:none;-webkit-user-drag:none;will-change:transform}
+@supports not (width:1px){.ngsp-pano__view{overflow-x:auto}}
+.ngsp-pano__hint{position:absolute;top:12px;left:50%;transform:translateX(-50%);margin:0;padding:6px 14px;border-radius:999px;background:rgba(10,10,20,.55);color:var(--ngsp-pano-ink);font-size:13px;pointer-events:none;transition:opacity .6s ease;max-width:90%;text-align:center;overflow-wrap:break-word}
+.ngsp-pano__hint.ngsp-pano__hint--gone{opacity:0}
+.ngsp-pano__btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#191b29;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ngsp-pano__prev{inset-inline-start:12px}.ngsp-pano__next{inset-inline-end:12px}
+@media (prefers-reduced-motion:reduce){.ngsp-pano__img{will-change:auto}}
