@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NovaLearn: Learning Management System</title>
+  <meta name="description" content="NovaLearn LMS demo: course catalog, progress tracking, quizzes and certificates. Front-end demo with synthetic data." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236c5ce7'/%3E%3Cpath d='M9 23V9h3.4v11.2H20V23H9z' fill='white'/%3E%3C/svg%3E" />
+</head>
+<body><a class="portfolio-return" href="../../projects/learning-management-system.html">← Case study · Synthetic-data demo</a>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#/">
+        <span class="brand-mark">N</span>
+        <span class="brand-name">Nova<em>Learn</em></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#/" data-route="/">Dashboard</a>
+        <a href="#/courses" data-route="/courses">Browse courses</a>
+        <a href="#/my-learning" data-route="/my-learning">My learning</a>
+        <a href="#/certificates" data-route="/certificates">Certificates</a>
+      </nav>
+      <div class="sidebar-foot">
+        <p class="demo-note">Front-end demo<br />synthetic data only</p>
+      </div>
+    </aside>
+
+    <div class="main-col">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+        <form id="topSearch" class="top-search" role="search">
+          <input type="search" id="topSearchInput" placeholder="Search courses, topics, skills…" aria-label="Search courses" />
+        </form>
+        <div class="top-user" title="Demo learner profile">
+          <span class="avatar">NG</span>
+          <span class="top-user-name">Nada G.</span>
+        </div>
+      </header>
+      <main id="view" class="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
