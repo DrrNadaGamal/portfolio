@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="A bilingual Arabic-English appointment booking system for salons, gyms and clinics: public booking page, staff calendar, time off, no-show tracking and double-booking protection."><meta name="theme-color" content="#f5f3ec"><meta property="og:title" content="Mawid | Nada Gamal"><meta property="og:description" content="A bilingual Arabic-English appointment booking system for salons, gyms and clinics."><meta property="og:type" content="website"><title>Mawid | Nada Gamal</title><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"><script src="../assets/app.js" defer></script></head><body><a class="skip" href="#main">Skip to content</a><header class="header wrap"><a class="brand" href="../index.html" aria-label="Nada Gamal home">nada<span class="brand-dot">.</span><span class="brand-sub">GAMAL / WEB DEVELOPER</span></a><nav aria-label="Main navigation"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#services">Expertise</a><a class="nav-contact" href="../index.html#contact">Let's talk <span aria-hidden="true">↗</span></a></nav></header><main id="main"><section class="case-intro wrap" id="top"><a class="text-link" href="../index.html#work">← Back to the collection</a><div class="case-title"><p class="eyebrow">PORTFOLIO DEMO / BUILT / LIVE DEMO</p><h1>Mawid</h1><p class="case-subtitle serif">Every appointment, without the double booking.</p></div><div class="project-art screenshot-art lavender"><img src="../assets/images/mawid-calendar.webp" srcset="../assets/images/mawid-calendar-720.webp 720w, ../assets/images/mawid-calendar.webp 1360w" sizes="(max-width: 700px) 90vw, 560px" width="1360" height="820" alt="Mawid day calendar with four staff columns, booked appointments, breaks and a current-time line." decoding="async"><span class="image-kind">ACTUAL BUILD</span></div><p class="work-note">Mawid · Day calendar. Fictional demo data.</p><div class="case-evidence-actions"><a class="button primary" href="https://mawid-booking-ebon.vercel.app" target="_blank" rel="noopener">Try live demo ↗</a><a href="https://github.com/DrrNadaGamal/mawid-booking" target="_blank" rel="noopener">GitHub source ↗</a><a href="https://gitlab.com/DrrNadaGamal/mawid-booking" target="_blank" rel="noopener">GitLab mirror ↗</a></div><div class="case-grid"><aside><p class="eyebrow">BUILT WITH</p>
+<div class="tags"><span>Vanilla JS</span><span>Vercel Functions</span><span>Vercel Blob</span><span>Service worker</span><span>RTL / i18n</span><span>Roles</span></div><p class="eyebrow credit-label">CREDIT</p><p>Product direction, scope and delivery: Nada Gamal. Presented as a demonstration build, not a production client deployment.</p></aside><div class="case-body"><h2>The problem</h2>
+<p>Small salons, gyms and clinics take bookings through WhatsApp, calls and a paper diary. Two people end up in the same chair at the same time, a day off is forgotten, nobody remembers who keeps not showing up, and the owner spends the evening confirming tomorrow's list by hand.</p>
+<h2>What was built</h2>
+<p>An appointment system with two faces. Customers open a booking page for the business, choose a service, choose a person or "anyone available", see only slots that are really free and get a confirmation code, with no deposit. With the code and their phone number they can reschedule or cancel from a manage page. The business team gets a dashboard: a day and week calendar with a column per staff member, a bookings list, clients with visit history and a no-show count, services and prices, weekly schedules with breaks and time off, a reminders queue, reports and settings.</p>
+<p>Slots follow the rules the owner sets: service length, a step between starts, buffer time, daily breaks, opening days and time off. "Anyone available" picks the least busy free person. Cancelling inside the notice window is recorded as a late cancel, a no-show can only be marked after a grace period, and a client with repeated no-shows can be required to call first. Roles split owner, manager, reception and team member: a team member sees only their own day, and reports and settings stay with the owner and manager. The interface is fully Arabic right-to-left or English, and the Cairo time zone is handled with the browser's own time zone data so the summer time change does not shift bookings.</p>
+<h2>The approach</h2>
+<p>No framework: plain JavaScript pages and one serverless API function. The scheduling rules live in a pure logic module: slot generation, conflict checks, status flow, derived reminders, reports and permissions. Every write is checked again on the server against the latest state, so two people choosing the same slot cannot both win, and a team member cannot cancel a booking whatever the screen shows. State is stored in Vercel Blob as one immutable blob per version, and a writer that loses a race retries on top of the winner. Dashboard actions carry unique ids so a retry never applies twice, and check-in, complete and note actions made without a connection are queued on the device and sent when it returns. Thirty-eight unit and API tests pass, and the scripted browser test against the live site books through the real page, tries to take the same slot twice, fires eight bookings for one slot in parallel (exactly one is accepted), checks the dashboard, role limits, time off, customer cancel, Arabic layout and offline opening, with no console errors.</p>
+<h2>The result</h2>
+<p>A live demo anyone can open. Pick a role on the dashboard, or book as a customer on the public page for a salon or a gym. The sample data holds about a thousand bookings across a month, including no-shows and late cancels, so every chart and list has something to show.</p>
+<details class="case-boundaries">
+<summary>Evidence &amp; production limits</summary>
+<p>One shared demo workspace that resets every six hours: everyone sees and changes the same bookings. Sign-in is a role picker with no passwords, so it must not hold real customer data. Businesses, people, phone numbers and prices are fictional. No SMS, WhatsApp or email is sent: the reminders queue shows what would be sent.</p>
+<p>Known gaps: one service per booking; no group classes, packages or recurring bookings; offline support covers the app shell, the last loaded views and queued check-in, complete and note actions, not a first load or new bookings without a connection; under heavy load a write can answer "busy" and needs a retry. Direction, scope and delivery: Nada Gamal.</p>
+</details>
+<div class="case-next"><h3>Next chapter</h3><p>Real sign-in, a proper database, SMS or WhatsApp reminders, group classes with capacity, recurring bookings and online deposits would be the next implementation steps.</p></div><section class="case-gallery" aria-label="Project screenshot gallery"><h2>Inside the build</h2><p>Open any preview to see the full capture. Captures show demonstration content, not evidence of client use.</p><div class="case-gallery-grid">
+<figure class="screen-figure ">
+<a href="../assets/images/mawid-booking.webp" target="_blank" rel="noopener" aria-label="Open full image: Mawid · Booking page, choosing a person.">
+<img src="../assets/images/mawid-booking-720.webp" width="720" height="434" alt="Public booking page: service chosen, person step and a booking summary with total and cancellation notice." loading="lazy" decoding="async">
+</a>
+<figcaption>Mawid · Booking page, choosing a person.</figcaption>
+</figure>
+<figure class="screen-figure ">
+<a href="../assets/images/mawid-week.webp" target="_blank" rel="noopener" aria-label="Open full image: Mawid · Week view for one stylist.">
+<img src="../assets/images/mawid-week-720.webp" width="720" height="434" alt="Week calendar for one staff member with breaks, a day off and bookings." loading="lazy" decoding="async">
+</a>
+<figcaption>Mawid · Week view for one stylist.</figcaption>
+</figure>
+<figure class="screen-figure ">
+<a href="../assets/images/mawid-reports.webp" target="_blank" rel="noopener" aria-label="Open full image: Mawid · Reports for the last 30 days.">
+<img src="../assets/images/mawid-reports-720.webp" width="720" height="476" alt="Reports with revenue, completed visits, no-show rate, team utilisation, top services and bookings by weekday." loading="lazy" decoding="async">
+</a>
+<figcaption>Mawid · Reports for the last 30 days.</figcaption>
+</figure>
+<figure class="screen-figure ">
+<a href="../assets/images/mawid-team.webp" target="_blank" rel="noopener" aria-label="Open full image: Mawid · Team schedules and time off.">
+<img src="../assets/images/mawid-team-720.webp" width="720" height="476" alt="Weekly schedule per staff member with daily breaks and a time off form." loading="lazy" decoding="async">
+</a>
+<figcaption>Mawid · Team schedules and time off.</figcaption>
+</figure>
+<figure class="screen-figure ">
+<a href="../assets/images/mawid-clients.webp" target="_blank" rel="noopener" aria-label="Open full image: Mawid · Clients with history and no-shows.">
+<img src="../assets/images/mawid-clients-720.webp" width="720" height="434" alt="Clients table with visits, no-show count, last visit, next booking and amount spent." loading="lazy" decoding="async">
+</a>
+<figcaption>Mawid · Clients with history and no-shows.</figcaption>
+</figure>
+<figure class="screen-figure ">
+<a href="../assets/images/mawid-arabic.webp" target="_blank" rel="noopener" aria-label="Open full image: Mawid · Arabic right-to-left calendar.">
+<img src="../assets/images/mawid-arabic-720.webp" width="720" height="434" alt="Day calendar in Arabic laid out right to left with the same staff columns and bookings." loading="lazy" decoding="async">
+</a>
+<figcaption>Mawid · Arabic right-to-left calendar.</figcaption>
+</figure>
+<figure class="screen-figure ">
+<a href="../assets/images/mawid-mobile.webp" target="_blank" rel="noopener" aria-label="Open full image: Mawid · Arabic booking page on a phone.">
+<img src="../assets/images/mawid-mobile-720.webp" width="720" height="1558" alt="Gym booking page in Arabic on a phone, listing services with price and duration." loading="lazy" decoding="async">
+</a>
+<figcaption>Mawid · Arabic booking page on a phone.</figcaption>
+</figure>
+</div>
+</section><div class="source-actions"><a href="https://github.com/DrrNadaGamal/mawid-booking" target="_blank" rel="noopener">View GitHub source ↗</a><a href="https://gitlab.com/DrrNadaGamal/mawid-booking" target="_blank" rel="noopener">GitLab mirror ↗</a></div><a class="button primary" href="https://mawid-booking-ebon.vercel.app" target="_blank" rel="noopener">Open live demo <span aria-hidden="true">↗</span></a></div></div><div class="case-bottom"><h2>Have a challenge like this?</h2><a class="text-link" href="../index.html#contact">Prepare a project brief ↗</a></div></section></main><footer class="footer wrap"><a class="brand" href="../index.html">nada<span class="brand-dot">.</span></a><p>Thoughtful websites. Carefully built.</p><a href="#top">Back to top ↑</a><small>© 2026 Nada Gamal · Portfolio v10.1</small></footer></body></html>
