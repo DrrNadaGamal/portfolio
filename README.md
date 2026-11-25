@@ -1,6 +1,6 @@
 # Nada Gamal — Portfolio
 
-Personal portfolio of Nada Gamal, a web developer focused on WordPress (Elementor, Bricks), PHP, and custom front-end work. Implementation of the demo projects is AI-assisted under her direction.
+Personal portfolio of Nada Gamal, a web developer focused on WordPress (Elementor, Bricks), PHP, and custom front-end work.
 
 Live preview: https://portfolio-nada-software-dev.vercel.app
 
